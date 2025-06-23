@@ -50,17 +50,20 @@ body {
    Header
 ========================================================== */
 header {
-  position: static;
-  width: 100%;
-  background: #c8a97e;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
-}
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    background: #c8a97e;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+  }
+  
 
 header h2 {
   margin: 0;
@@ -122,7 +125,7 @@ main {
   /* Animación de revelación */
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.4s ease;
 }
 
 .pantalla.visible {
@@ -162,43 +165,59 @@ footer {
    Grid de Menu 2x2 (Original)
 ========================================================== */
 .menu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  height: 100vh;
-  width: 100%;
-}
-
-.grid-item {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.grid-item:hover img {
-  transform: scale(1.1);
-}
-
-.grid-item p {
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  right: 0;
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    height: 100vh;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Cada ítem mantiene el efecto */
+  .grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .grid-item:hover img {
+    transform: scale(1.08);
+  }
+  
+  .grid-item p {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* ✅ Responsive para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .menu-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 50vh); /* Cada elemento ocupa media pantalla vertical */
+    }
+  }
+  
 
 /* ==========================================================
    Logo y otros elementos
@@ -427,3 +446,14 @@ footer {
     margin: 0 0.5rem;
   }
 }
+
+@media (max-width: 768px) {
+    main {
+      scroll-snap-type: none;
+    }
+  
+    .pantalla {
+      scroll-snap-align: none;
+    }
+  }
+  
