@@ -1,0 +1,429 @@
+/* ==========================================================
+   Reset y base
+========================================================== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100%;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* o ajusta a la altura que quieras */
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* ==========================================================
+   Header
+========================================================== */
+header {
+  position: static;
+  width: 100%;
+  background: #c8a97e;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+}
+
+header h2 {
+  margin: 0;
+  color: #4a3c31;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+header nav a {
+  color: #4a3c31;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover,
+header nav a:focus {
+  color: #30261e;
+}
+
+/* Header Responsive */
+@media (max-width: 400px) {
+  header {
+    justify-content: center;
+  }
+  header nav {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================
+   Main y Secciones
+========================================================== */
+main {
+  scroll-snap-type: y mandatory;
+}
+
+.pantalla {
+  position: relative;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  background: #fff9f2;
+  color: #4a3c31;
+
+  /* Animación de revelación */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.pantalla.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pantalla img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.pantalla ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.25rem;
+}
+
+.pantalla ul li {
+  margin: 0.75rem 0;
+}
+
+/* ==========================================================
+   Footer
+========================================================== */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #4a3c31;
+  background: #c8a97e;
+}
+
+/* ==========================================================
+   Grid de Menu 2x2 (Original)
+========================================================== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100vh;
+  width: 100%;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.1);
+}
+
+.grid-item p {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================
+   Logo y otros elementos
+========================================================== */
+.logo {
+  height: 35px;
+  display: block;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.full-width-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================
+   Menu de Especialidades (Cards alternadas)
+========================================================== */
+#menu {
+  max-width: none;
+  width: auto; /* Ocupa toda la pantalla */
+  padding: 2rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  background: #fff9f2;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0 0 0 / 0.1);
+  padding: 1rem 2rem;
+}
+
+.card-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.card-text {
+  flex: 1;
+  text-align: left;
+  color: #4a3c31;
+}
+
+.card-text h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.card-text p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Alternar posición para cards pares */
+.card.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Responsive para cards alternadas */
+@media (max-width: 600px) {
+  .card,
+  .card.reverse {
+    flex-direction: column;
+  }
+
+  .card-image img {
+    width: 100%;
+  }
+
+  .card-text {
+    text-align: center;
+  }
+}
+
+/* ==========================================================
+   Contacto (Mejorado para ocupar más espacio)
+========================================================== */
+.contact-wrapper {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem;
+    flex-wrap: nowrap;
+  }
+
+  .address-card {
+    flex: 1 1 60%;
+    max-width: none;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+  }
+
+.address-text h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #4a3c31;
+}
+
+.address-text p {
+  margin: 0.3rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+ 
+.social-links {
+    flex: 1 1 35%;
+    max-width: none;
+    text-align: center;
+    padding: 2rem;
+  }
+
+.social-links h2 {
+  color: #4a3c31;
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.social-button {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  background: #c8a97e;
+  border-radius: 8px;
+  color: #4a3c31;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.social-button:hover {
+  background: #a78963;
+}
+
+/* Íconos redes sociales */
+.social-icons {
+  margin: 0.5rem 0 1rem;
+}
+
+.social-icons a {
+  color: #4a3c31;
+  font-size: 2rem;
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #c8a97e;
+}
+
+/* Links legales */
+.legal-links {
+  font-size: 0.85rem;
+  color: #777;
+  line-height: 1.5;
+  margin-top: 2rem;
+}
+
+.legal-links a {
+  color: #777;
+  text-decoration: none;
+  margin: 0 0.25rem;
+}
+
+.legal-links a:hover {
+  color: #30261e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+  .address-card,
+  .social-links {
+    max-width: 100%;
+    flex: 1 1 100%;
+    padding: 1rem 0;
+  }
+  .map-container iframe {
+    width: 100%;
+    height: 200px;
+  }
+  .social-button {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  .social-icons a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+  }
+}

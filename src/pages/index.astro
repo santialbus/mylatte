@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MenuSection from '../components/MenuSection.astro';
+---
+
+<Layout title="MyLatte - Cafetería artesanal">
+  <section class="hero">
+    <img src="/cafeteria.jpg" alt="Cafetería" class="hero-image" />
+    <div class="hero-text">
+      <h1>MyLatte</h1>
+      <p>Una cafetería artesanal con pasión por el café.</p>
+    </div>
+  </section>
+
+  <!-- Ahora envolvemos MenuSection en una sección pantalla -->
+  <section id="menu" class="pantalla">
+    <MenuSection />
+  </section>
+
+  <section id="contacto" class="pantalla contacto-section">
+    <div class="contact-wrapper">
+      <!-- Tarjeta izquierda con mapa y dirección -->
+      <div class="address-card">
+        <div class="map-container">
+          <!-- Mapa embebido de Google -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.334915508255!2d-3.7037904846068364!3d40.41677597936451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228b80f83d55f%3A0x671d832fe45e1f86!2sPuerta%20del%20Sol%2C%20Madrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1686708901234!5m2!1sen!2sus"
+            width="180"
+            height="180"
+            style="border:0"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="address-text">
+          <h2>MyLatte Café</h2>
+          <p><i class="fas fa-map-marker-alt"></i> Calle del Café 123, Madrid</p>
+          <p><i class="fas fa-clock"></i> Lun–Vie 08:00–20:00</p>
+        </div>
+      </div>
+
+      <!-- Redes sociales y legales -->
+      <div class="social-links">
+        <h2>Síguenos y contáctanos</h2>
+        <!-- Email botón -->
+        <a href="mailto:mylatte@mylatte.com" class="social-button"
+          ><i class="fas fa-envelope"></i> mylatte@mylatte.com</a
+        >
+        <!-- Íconos redes sociales -->
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <!-- Links legales -->
+        <div class="legal-links">
+          <a href="#">Cookies</a> | <a href="#">Condiciones generales</a> |
+          <a href="#">Privacidad</a> | <a href="#">Legal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
