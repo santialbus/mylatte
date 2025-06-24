@@ -457,3 +457,16 @@ footer {
     }
   }
   
+  .instagram-section {
+    padding: 2rem;
+    text-align: center;
+  }
+  .instagram-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .snapwidget-frame {
+    width: 100%;
+    border: none;
+  }
+  
