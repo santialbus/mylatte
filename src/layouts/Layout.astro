@@ -6,14 +6,45 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
+  
+    <!-- Meta descripción para buscadores -->
+    <meta name="description" content="Descubre MyLatte, tu cafetería artesanal en Madrid. Café de especialidad, repostería casera y ambiente acogedor. ¡Visítanos o haz tu pedido online!" />
+  
+    <!-- Meta viewport para responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="MyLatte – Cafetería artesanal en Madrid" />
+    <meta property="og:description" content="Café de especialidad, repostería casera y ambiente acogedor. ¡Visítanos o haz tu pedido online!" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mylatte.com/" />
+  
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MyLatte – Cafetería artesanal en Madrid" />
+    <meta name="twitter:description" content="Café de especialidad, repostería casera y ambiente acogedor." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+  
+    <!-- Favicon -->
+    <link rel="icon" href="./logo.png" type="image/png" />
+  
+    <!-- CSS -->
     <link rel="stylesheet" href="/styles.css" />
+  
     <!-- Font Awesome para íconos -->
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="icon" href="./logo.png" type="image/png" />
+  
+    <!-- Suavizar scroll y transiciones -->
+    <style>
+      html { scroll-behavior: smooth; }
+      a { transition: color 0.3s ease; }
+    </style>
   </head>
+  
   <a href="https://wa.me/tu-numero-de-whatsapp" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
     <img src="whatsapp-icon.png" alt="WhatsApp" />
   </a>
