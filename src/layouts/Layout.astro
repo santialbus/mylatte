@@ -44,6 +44,11 @@ const { title } = Astro.props;
       a { transition: color 0.3s ease; }
     </style>
   </head>
+
+  <!-- Botón flotante para abrir página de contacto -->
+  <a href="/contactoform" class="contact-float" aria-label="Formulario de contacto">
+    <img src="/contact.png" alt="Contacto" />
+  </a>
   
   <a href="https://wa.me/tu-numero-de-whatsapp" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
     <img src="whatsapp-icon.png" alt="WhatsApp" />
