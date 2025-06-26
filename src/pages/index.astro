@@ -28,6 +28,20 @@ import MenuSection from '../components/MenuSection.astro';
     <div class="elfsight-app-ca7e23e8-c21f-4387-be8b-7624fce82e80" data-elfsight-app-lazy></div>
   </section>
 
+  <section id="testimonios" class="pantalla testimonios-section">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonios-grid">
+      <blockquote>
+        <p>“El mejor café que he probado, ¡y el lugar es precioso!”</p>
+        <cite>– Laura M.</cite>
+      </blockquote>
+      <blockquote>
+        <p>“Servicio rápido y todo delicioso. Recomendadísimo.”</p>
+        <cite>– Carlos R.</cite>
+      </blockquote>
+    </div>
+  </section>
+
   <section id="contacto" class="pantalla contacto-section">
     <div class="contact-wrapper">
       <div class="address-card">
@@ -69,5 +83,13 @@ import MenuSection from '../components/MenuSection.astro';
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="suscribete" class="pantalla suscribete-section">
+    <h2>Suscríbete a nuestras novedades</h2>
+    <form action="https://formspree.io/f/tu-id-newsletter" method="POST" class="newsletter-form">
+      <input type="email" name="email" placeholder="tu@correo.com" required />
+      <button type="submit">Suscribirse</button>
+    </form>
   </section>
 </Layout>

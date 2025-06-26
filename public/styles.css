@@ -629,3 +629,78 @@ footer {
   height: 24px;
   filter: invert(100%); 
 }
+
+.suscribete-section {
+  padding: 2rem;
+  background: #c8a97e;
+  text-align: center;
+}
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.newsletter-form input {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  min-width: 250px;
+}
+.newsletter-form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #4a3c31;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.newsletter-form button:hover {
+  background: #30261e;
+}
+
+
+.testimonios-section {
+  padding: 3rem 2rem;
+  background: #fff9f2;
+  text-align: center;
+}
+
+.testimonios-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center; /* Centra los testimonios dentro de cada celda */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.testimonios-grid blockquote {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-style: italic;
+}
+
+.testimonios-grid cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: bold;
+  color: #a78963;
+}
+
+@media (max-width: 500px) {
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+  }
+}
