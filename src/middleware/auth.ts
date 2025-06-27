@@ -1,6 +1,6 @@
 import type { MiddlewareHandler } from 'astro';
 
-export const onRequest: MiddlewareHandler = async ({ locals, request }, next) => {
+export const onRequest: MiddlewareHandler = async ({ request }) => {
   const auth = request.headers.get('authorization');
 
   if (!auth) {
@@ -21,5 +21,5 @@ export const onRequest: MiddlewareHandler = async ({ locals, request }, next) =>
   }
 
 
-  return next();
+  return new Response(null, { status: 200 });
 };
