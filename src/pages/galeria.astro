@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <section id="galeria" class="galeria-section pantalla">
+    <h2>Nuestro Restaurante</h2>
+    <div class="galeria-grid-masonry">
+        <img class="item1" src="/image/galeria1.jpg" alt="Interior" />
+        <img class="item2" src="/image/galeria2.jpg" alt="Plato" />
+        <img class="item3" src="/image/galeria3.jpg" alt="Barra" />
+        <img class="item4" src="/image/galeria4.jpg" alt="Postre" />
+        <img class="item5" src="/image/galeria5.jpg" alt="Ambiente" />
+        <img src="/image/galeria6.jpg" alt="Vista" />
+    </div>
+
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <span id="modalClose" class="modal-close">&times;</span>
+      <img id="modalImg" class="modal-content" alt="Imagen ampliada" />
+    </div>
+  </section>
+
+</Layout>
+
+  <style>
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  display: block;
+}
+
+.modal-close {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+  </style>
+
+  <script type="module">
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+  const images = document.querySelectorAll('.galeria-grid-masonry img'); // <- aquí estaba el error
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.classList.add('active');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modalImg.src = '';
+      modalImg.alt = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
+    });
+  </script>
