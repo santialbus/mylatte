@@ -713,3 +713,38 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.catfact {
+  background: #f9f6f1;
+  border: 1.5px solid #c99c6b;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  max-width: 480px;
+  margin: 2rem auto;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #4a3c31;
+}
+.catfact h2 {
+  font-family: 'Playfair Display', serif;
+  color: #7b4b2e;
+  margin-bottom: 1rem;
+}
+.catfact p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.catfact button {
+  background: #7b4b2e;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.catfact button:hover {
+  background: #c99c6b;
+}

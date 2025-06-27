@@ -1,0 +1,24 @@
+---
+---
+
+<section class="catfact">
+  <p id="fact">Cargando...</p>
+  <button id="newFactBtn">Nueva frase</button>
+
+  <script>
+    async function loadFact() {
+      const response = await fetch('https://catfact.ninja/fact');
+      const data = await response.json();
+      const factEl = document.getElementById('fact');
+      if (factEl) factEl.textContent = data.fact;
+    }
+
+    const newFactBtn = document.getElementById('newFactBtn');
+    if (newFactBtn) {
+    newFactBtn.addEventListener('click', loadFact);
+    }
+
+
+    loadFact(); // carga inicial
+  </script>
+</section>
