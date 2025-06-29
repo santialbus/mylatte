@@ -15,44 +15,6 @@ import Layout from '../layouts/Layout.astro';
   </section>
 </Layout>
 
-<style>
-  .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal.active {
-    display: flex;
-  }
-
-  .modal-content {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 12px;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 3rem;
-    color: white;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-    z-index: 1000;
-  }
-</style>
-
 <script type="module">
   document.addEventListener("DOMContentLoaded", async () => {
     const container = document.getElementById("galeriaGrid");
