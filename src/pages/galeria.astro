@@ -1,22 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
   <section id="galeria" class="galeria-section pantalla">
-    <h2>Nuestro Restaurante</h2>
-    <div class="galeria-grid-masonry">
-      <img class="item1" src="/image/galeria1.jpg" alt="Interior" />
-      <img class="item2" src="/image/galeria2.jpg" alt="Plato" />
-      <img class="item3" src="/image/galeria3.jpg" alt="Barra" />
-      <img class="item4" src="/image/galeria4.jpg" alt="Postre" />
-      <img class="item5" src="/image/galeria5.jpg" alt="Ambiente" />
-      <img src="/image/galeria6.jpg" alt="Vista" />
-    </div>
+    <h2>Galería del Restaurante</h2>
+    <div id="galeriaGrid" class="galeria-grid-masonry"></div>
 
     <!-- Modal -->
-    <div id="modal" class="modal">
-      <span id="modalClose" class="modal-close">&times;</span>
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="modalClose" class="modal-close" aria-label="Cerrar modal">&times;</button>
       <img id="modalImg" class="modal-content" alt="Imagen ampliada" />
     </div>
   </section>
@@ -52,6 +45,8 @@ import Layout from "../layouts/Layout.astro";
     right: 30px;
     font-size: 3rem;
     color: white;
+    background: transparent;
+    border: none;
     cursor: pointer;
     user-select: none;
     z-index: 1000;
@@ -59,30 +54,63 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <script type="module">
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modalImg");
-  const modalClose = document.getElementById("modalClose");
-  const images = document.querySelectorAll(".galeria-grid-masonry img"); // <- aquí estaba el error
+  document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.getElementById("galeriaGrid");
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalClose = document.getElementById("modalClose");
 
-  images.forEach((img) => {
-    img.addEventListener("click", () => {
-      modal.classList.add("active");
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
-    });
-  });
+    // Clases para collage irregular
+    const itemClasses = ['item1', 'item2', 'item3', 'item4', 'item5'];
 
-  modalClose.addEventListener("click", () => {
-    modal.classList.remove("active");
-    modalImg.src = "";
-    modalImg.alt = "";
-  });
+    try {
+      const res = await fetch("/api/cloudinary");
+      if (!res.ok) throw new Error('No se pudo cargar la galería');
+      const data = await res.json();
 
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("active");
-      modalImg.src = "";
-      modalImg.alt = "";
+      data.forEach((img, i) => {
+        const el = document.createElement("img");
+        el.src = img.url;
+        el.alt = img.alt || `Imagen ${i + 1}`;
+        el.loading = "lazy";
+
+        // Agregar clase para collage irregular
+        el.classList.add(itemClasses[i % itemClasses.length]);
+
+        el.addEventListener("click", () => {
+          modal.classList.add("active");
+          modalImg.src = el.src;
+          modalImg.alt = el.alt;
+          // Evitar scroll detrás del modal
+          document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(el);
+      });
+
+      const closeModal = () => {
+        modal.classList.remove("active");
+        modalImg.src = "";
+        modalImg.alt = "";
+        document.body.style.overflow = '';
+      };
+
+      modalClose.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+
+    } catch (error) {
+      console.error("Error cargando imágenes:", error);
+      container.innerHTML = '<p>Error al cargar la galería. Intenta recargar.</p>';
     }
   });
 </script>
